@@ -1,20 +1,9 @@
 import express from 'express';
+import routes from './routes'
 
 const app = express();
 
 app.use(express.json())
-
-
-app.get('/users', (req, res)=>{
-    return res.json(req.query);
-})
-
-app.post('/users', (req, res)=>{
-    return res.json(req.body)
-})
-
-app.delete('/users/:id', (req, res)=>{
-    return res.json(req.params)
-})
+app.use(routes)
 
 app.listen(3333);
